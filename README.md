@@ -133,6 +133,17 @@ vacío, y la columna de la izquierda queda como una línea de tiempo.
 Si un paper todavía no tiene PDF, usa `<span class="title-plain">Título</span>` en vez del `<a>`.
 Nunca dejes un `<a>` apuntando a un archivo que no existe.
 
+### La bio va plegada
+
+En `index.html` la bio es un `<details class="bio">` con `<summary>About</summary>`, cerrado por
+defecto, para que la lista de papers quede más arriba. Es HTML puro, sin JavaScript.
+
+`simplicity.html` usa `<div class="bio">`, sin `<summary>`. Los estilos del desplegable están
+escritos como `.bio > summary`, así que esa página no se ve afectada. Si alguna vez quieres
+plegar también esa, cambia el `div` por `details` y agrégale un `summary`.
+
+Al imprimir, el `summary` se oculta y los párrafos se muestran igual, estén plegados o no.
+
 ### Working papers: orden por estado, no por fecha
 
 La lista de working papers usa `<ol class="pubs pubs-flow">` y **no lleva columna de año**.

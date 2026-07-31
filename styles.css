@@ -152,6 +152,51 @@ h1 {
   max-width: 62ch;
 }
 
+/* The bio on index.html is a <details>, collapsed by default. These rules only
+   bite when a <summary> is present, so the plain <div class="bio"> on
+   simplicity.html is left alone. */
+.bio > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 3px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--accent);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.bio > summary::-webkit-details-marker { display: none; }
+
+.bio > summary:hover { color: var(--accent-hover); }
+
+.bio > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Chevron drawn from two borders: down when closed, up when open. */
+.bio > summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.bio[open] > summary::after {
+  margin-top: 2px;
+  transform: rotate(-135deg);
+}
+
+.bio[open] > summary { margin-bottom: 10px; }
+
 h2 {
   font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
   font-weight: 600;
@@ -329,4 +374,8 @@ footer {
   .sidebar, .chips { display: none; }
   .page { display: block; max-width: none; padding: 0; }
   a { text-decoration: none; }
+
+  /* Print the bio whether or not the reader expanded it, and drop the toggle. */
+  .bio > summary { display: none; }
+  .bio > p { display: block; }
 }
