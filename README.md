@@ -74,12 +74,14 @@ Reglas:
   ser idéntico al ya publicado.
 - Si mueves el proyecto de Overleaf: `.\build-cv.ps1 -Source "ruta\al\archivo.tex"`.
 
-### `CV_esp.tex` quedó obsoleto
+### `CV_esp.tex` ya no existe
 
-En la carpeta de Overleaf todavía está `CV_esp.tex`, el CV en español que se mantenía aparte. Ya no
-se usa: había quedado desactualizado (fecha de julio 2025, cargos en CEDEUS e ISCI que en el inglés
-estaban comentados, sin la consultoría 2024--2025). Conviene borrarlo desde Overleaf para que nadie
-lo edite por error. Hay copia en `../cv-backup-pre-bilingual/`.
+El CV en español se mantenía aparte en `CV_esp.tex` y había quedado desactualizado (fecha de julio
+2025, cargos en CEDEUS e ISCI que en el inglés estaban comentados, sin la consultoría 2024--2025).
+Se borró de Overleaf en julio de 2026, cuando `main.tex` pasó a generar las dos versiones. Queda
+copia en `../cv-backup-pre-bilingual/` por si hay que consultar alguna redacción antigua.
+
+En la carpeta de Overleaf queda `temp.tex`, que el script ignora.
 
 ## Publicar en GitHub Pages
 
