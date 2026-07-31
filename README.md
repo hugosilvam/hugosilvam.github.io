@@ -184,9 +184,12 @@ Quedan sin PDF solo cosas que no están publicadas:
 
 | Paper | Nombre de archivo sugerido | Qué pasó |
 |---|---|---|
-| Regulating vertical markets through delegation | `pdf/vertical-markets.pdf` | Google Drive devolvía 401 (no era público) |
 | Welfare-improving taxes in the urban equilibrium | `pdf/welfare-improving-taxes.pdf` | la etiqueta `[pdf]` era texto plano, nunca tuvo enlace |
 | Input third-degree price discrimination by congestible facilities | `pdf/input-price-discrimination.pdf` | `economia.uc.cl` lo borró; hay una copia en `website/temp/` sin revisar |
+| Information frictions in rental voucher programs | `pdf/rental-vouchers.pdf` | por ahora solo hay slides, publicadas como `pdf/rental-vouchers-slides.pdf` |
+
+Cuando lo único que hay son slides, el título va en `title-plain` y el enlace de `filelinks` dice
+`Slides`, no `PDF`.
 
 Ojo con una cosa: los PDFs que se subieron son la **versión tipografiada de la revista**, no el
 manuscrito aceptado. Elsevier e INFORMS permiten publicar el manuscrito aceptado en una página
