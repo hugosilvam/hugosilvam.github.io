@@ -7,9 +7,79 @@ GitHub Pages.
 index.html        Bio + working papers + artículos + capítulos + work in progress + older papers
 simplicity.html   Página de SimpliCity
 styles.css        Todos los estilos (compartidos por las dos páginas)
+build-cv.ps1      Compila el CV desde Overleaf y actualiza pdf/cv.pdf
 images/           Foto de perfil
 pdf/              CV y PDFs de los papers
 ```
+
+## El CV (inglés y español desde un solo archivo)
+
+El fuente del CV **no vive en este repo**. Está en la carpeta que Overleaf sincroniza por Dropbox:
+
+```
+~/Dropbox/Apps/Overleaf/CV - Curriculum/main.tex
+```
+
+Así se sigue editando en el navegador. Ese único archivo genera **las dos versiones**:
+`pdf/cv.pdf` (inglés) y `pdf/cv-es.pdf` (español). `build-cv.ps1` es lo único que los escribe.
+
+### Flujo
+
+1. Editas `main.tex` en Overleaf. Solo ese archivo.
+2. Esperas a que Dropbox sincronice.
+3. Desde esta carpeta:
+
+   ```
+   .\build-cv.ps1
+   git add pdf/cv.pdf pdf/cv-es.pdf
+   git commit -m "CV update"
+   git push
+   ```
+
+Para compilar solo uno: `.\build-cv.ps1 -Language es`.
+
+El script imprime la línea de fecha del CV (`January / Enero 2026`) al terminar, así se nota
+enseguida si compilaste una versión vieja.
+
+### Cómo editar el texto bilingüe
+
+Cada string traducible va envuelto en `\tr{inglés}{español}`:
+
+```latex
+\section*{\tr{Research grants}{Proyectos de investigación}}
+2024--2028 & \tr{Principal Investigator}{Investigador Principal}, ...
+```
+
+Reglas:
+
+- **Los títulos de papers, revistas y congresos no se traducen.** Van en inglés en las dos
+  versiones, como corresponde en un CV académico. Solo se traducen encabezados, cargos y prosa
+  (consultorías, premios, actividades).
+- Atajos ya definidos para lo que más se repite: `\cvwith` (with/con), `\cvand` (and/y),
+  `\cvpresent` (present/presente).
+- **Nunca pongas `&` ni `\\` dentro de un `\tr{}{}`.** Rompe la tabla de `tabularx`.
+- Si agregas contenido nuevo y solo escribes el inglés, el español mostrará el inglés. No falla
+  silenciosamente en el sentido de romperse, pero queda mezclado: conviene escribir los dos al
+  mismo tiempo.
+
+### Detalles de la compilación
+
+- Compila con `pdflatex` directo, dos pasadas por idioma. No usa `latexmk` porque es un script de
+  Perl y esta instalación de MiKTeX no tiene Perl. Si el CV alguna vez usa `\ref` o `\cite`, hay
+  que agregar una tercera pasada.
+- LaTeX corre en una carpeta temporal, así que no quedan `.aux`/`.log` en la carpeta de Overleaf.
+  Si quedaran, Overleaf los sincronizaría de vuelta al proyecto.
+- `babel` se deja en `spanish` para las dos versiones, igual que antes del cambio bilingüe. Ponerlo
+  en `english` para la versión inglesa cambiaría los cortes de línea y el PDF en inglés dejaría de
+  ser idéntico al ya publicado.
+- Si mueves el proyecto de Overleaf: `.\build-cv.ps1 -Source "ruta\al\archivo.tex"`.
+
+### `CV_esp.tex` quedó obsoleto
+
+En la carpeta de Overleaf todavía está `CV_esp.tex`, el CV en español que se mantenía aparte. Ya no
+se usa: había quedado desactualizado (fecha de julio 2025, cargos en CEDEUS e ISCI que en el inglés
+estaban comentados, sin la consultoría 2024--2025). Conviene borrarlo desde Overleaf para que nadie
+lo edite por error. Hay copia en `../cv-backup-pre-bilingual/`.
 
 ## Publicar en GitHub Pages
 
