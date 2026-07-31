@@ -158,6 +158,10 @@ El estado va en la misma línea que los coautores, dentro de un `<span class="st
 </span>
 ```
 
+Los enlaces (`PDF`, `SSRN`, `Journal`, `Slides`) van en esa misma línea, después de la píldora.
+Eso es puro CSS: el título es el único bloque de la entrada y todo lo que va después es inline. En el
+HTML `filelinks` sigue siendo un hermano de `meta`, así que la estructura de arriba no cambia.
+
 - `status-rr` pinta la píldora en azul, y es solo para *revise and resubmit*.
 - `status` a secas queda gris, y es para `Submitted`.
 - No pongas ahí la cita de un paper publicado. Esa va como texto normal después de los

@@ -249,30 +249,43 @@ h2 {
   padding-top: 2px;
 }
 
+/* The title is the only block in the entry. Everything after it (coauthors,
+   status, file links) is inline, so it all flows onto one second line.
+   fit-content keeps the clickable box hugging the text: as a plain block the
+   <a> would fill the column and empty space to its right would open the PDF. */
 .title {
   font-weight: 500;
-  display: inline;
+  display: block;
+  width: fit-content;
+  margin-bottom: 2px;
 }
 
 .title-plain {
   font-weight: 500;
   color: var(--text);
+  display: block;
+  margin-bottom: 2px;
 }
 
 .meta {
-  display: block;
+  display: inline;
   color: var(--muted);
   font-size: 15px;
-  margin-top: 2px;
 }
 
 .meta i { font-style: italic; }
 
+/* Rides on the coauthors line, after the status pill. */
 .filelinks {
-  display: block;
-  margin-top: 5px;
+  display: inline;
+  margin-left: 14px;
   font-size: 13.5px;
 }
+
+/* An entry with no coauthors and no status has nothing on the second line
+   before the links, so they open it and the leading gap is not wanted. */
+.title + .filelinks,
+.title-plain + .filelinks { margin-left: 0; }
 
 .filelinks a { font-weight: 500; }
 
