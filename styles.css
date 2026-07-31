@@ -1,0 +1,285 @@
+/* Hugo E. Silva — personal site
+   Layout modeled on the brief: sticky sidebar + single-column publication list. */
+
+:root {
+  --bg: #ffffff;
+  --text: #16191f;
+  --muted: #59636f;
+  --rule: #e4e7ec;
+  --accent: #1a4f7a;
+  --accent-hover: #123a5a;
+  --chip-bg: #f4f6f8;
+  --chip-border: #dfe4ea;
+  --max: 1020px;
+  --gutter: 4.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151a;
+    --text: #e5e9ef;
+    --muted: #9aa4b0;
+    --rule: #262c35;
+    --accent: #82b8de;
+    --accent-hover: #a7d0ec;
+    --chip-bg: #1a1f27;
+    --chip-border: #2b323c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout ---------- */
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 20px 72px;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 32px;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+}
+
+.sidebar-block {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.sidebar-block strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.chip:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Type ---------- */
+
+h1 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 2.35rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+}
+
+.role {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 22px;
+  line-height: 1.5;
+}
+
+.bio p {
+  margin: 0 0 14px;
+  max-width: 62ch;
+}
+
+h2 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  margin: 44px 0 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.section-note {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+
+/* ---------- Publication lists ---------- */
+
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pubs > li {
+  display: grid;
+  grid-template-columns: var(--gutter) 1fr;
+  gap: 0 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pubs > li:last-child { border-bottom: none; }
+
+/* The year sits in the gutter and is printed only when it changes,
+   so the column reads as a timeline rather than a repeated label. */
+.yr {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+
+.title {
+  font-weight: 500;
+  display: inline;
+}
+
+.title-plain {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.meta {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.meta i { font-style: italic; }
+
+.filelinks {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+}
+
+.filelinks a { font-weight: 500; }
+
+.filelinks a + a { margin-left: 14px; }
+
+.status {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Simple lists (work in progress, older papers) */
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 15.5px;
+}
+
+.plain li:last-child { border-bottom: none; }
+
+.plain .meta { display: inline; margin: 0; }
+
+footer {
+  margin-top: 52px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 820px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px 18px 56px;
+  }
+  .sidebar { position: static; }
+  .photo {
+    width: 150px;
+    aspect-ratio: 1 / 1;
+  }
+  h1 { font-size: 2rem; }
+  .pubs > li {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .yr {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0 0 2px;
+  }
+}
+
+@media print {
+  :root { --accent: #000; --muted: #444; --rule: #ccc; }
+  body { font-size: 11pt; }
+  .sidebar, .chips { display: none; }
+  .page { display: block; max-width: none; padding: 0; }
+  a { text-decoration: none; }
+}
