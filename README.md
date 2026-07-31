@@ -8,7 +8,7 @@ index.html        Bio + working papers + artículos + capítulos + work in progr
 simplicity.html   Página de SimpliCity
 styles.css        Todos los estilos (compartidos por las dos páginas)
 build-cv.ps1      Compila el CV desde Overleaf y actualiza pdf/cv.pdf
-images/           Foto de perfil
+images/           Foto de perfil (cuadrada, 600x600; el original de 4480x4480 pesaba 10 MB)
 pdf/              CV y PDFs de los papers
 ```
 
@@ -169,13 +169,7 @@ HTML `filelinks` sigue siendo un hermano de `meta`, así que la estructura de ar
 
 ## Pendientes
 
-### 1. Tu foto
-
-`images/hugo-silva.jpg` es un marcador de posición. La foto original del sitio de Google estaba en
-una URL firmada que ya expiró y devuelve 403, así que no se pudo recuperar. Reemplaza el archivo
-con tu foto (cuadrada, idealmente 600×600 o más). No hay que tocar el HTML.
-
-### 2. PDFs que faltan
+### 1. PDFs que faltan
 
 Desde el 31-07-2026 **todos los papers publicados tienen PDF**. Los archivos salieron de
 `~/Dropbox/4.Bibliografia/Papers`, que es donde están las versiones finales de las revistas.
@@ -201,7 +195,7 @@ personal, pero no siempre la versión final. El de *Transportation Science* adem
 sello de descarga con la IP institucional. Si alguna vez llega un reclamo, la solución es
 reemplazar ese archivo por el manuscrito aceptado, no bajar el enlace.
 
-### 3. Cosas que conviene que confirmes
+### 2. Cosas que conviene que confirmes
 
 - **Dos títulos que actualicé según SSRN.** El sitio de Google tenía versiones viejas:
   - *"...on housing **supply**: the role of land-use regulation"* → en SSRN es *"...on housing **and
