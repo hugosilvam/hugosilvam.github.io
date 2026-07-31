@@ -118,7 +118,7 @@ Copia un `<li>` de la lista correspondiente en `index.html` y edita el texto. La
   <span class="yr">2027</span>          <!-- año; déjalo vacío si repite el del anterior -->
   <div>
     <a class="title" href="pdf/archivo.pdf">Título del paper</a>
-    <span class="meta">with Coautor.<br><i>Revista</i>, 12:345678.</span>
+    <span class="meta">with Coautor. <i>Revista</i>, 12:345678.</span>
     <span class="filelinks">
       <a href="pdf/archivo.pdf">PDF</a>
       <a href="https://doi.org/...">Journal</a>
@@ -133,6 +133,25 @@ vacío, y la columna de la izquierda queda como una línea de tiempo.
 Si un paper todavía no tiene PDF, usa `<span class="title-plain">Título</span>` en vez del `<a>`.
 Nunca dejes un `<a>` apuntando a un archivo que no existe.
 
+### Working papers: orden por estado, no por fecha
+
+La lista de working papers usa `<ol class="pubs pubs-flow">` y **no lleva columna de año**.
+Va ordenada por estado: primero los *revise and resubmit*, después los *submitted*, y al final
+los que no tienen estado. Al agregar uno nuevo, ponlo en el grupo que le corresponde.
+
+El estado va en la misma línea que los coautores, dentro de un `<span class="status">`:
+
+```html
+<span class="meta">with Coautor.
+  <span class="status status-rr">Revise and resubmit, <i>Revista</i></span>
+</span>
+```
+
+- `status-rr` pinta la píldora en azul, y es solo para *revise and resubmit*.
+- `status` a secas queda gris, y es para `Submitted`.
+- No pongas ahí la cita de un paper publicado. Esa va como texto normal después de los
+  coautores, sin píldora.
+
 ## Pendientes
 
 ### 1. Tu foto
@@ -143,17 +162,26 @@ con tu foto (cuadrada, idealmente 600×600 o más). No hay que tocar el HTML.
 
 ### 2. PDFs que faltan
 
-Estos papers no tienen PDF porque el enlace original estaba caído. Deja el archivo en `pdf/` con el
-nombre indicado y agrega el enlace en `index.html`:
+Desde el 31-07-2026 **todos los papers publicados tienen PDF**. Los archivos salieron de
+`~/Dropbox/4.Bibliografia/Papers`, que es donde están las versiones finales de las revistas.
+Si publicas uno nuevo, busca el PDF ahí primero.
 
-| Paper | Nombre de archivo sugerido | Qué pasó con el enlace original |
+El nombre en `pdf/` es corto y descriptivo, sin autores ni año. Por ejemplo
+`Ramos-Silva (2023, TR-B) - Evasion and PT pricing and design.pdf` quedó como `fare-evasion.pdf`.
+
+Quedan sin PDF solo cosas que no están publicadas:
+
+| Paper | Nombre de archivo sugerido | Qué pasó |
 |---|---|---|
-| Fare evasion in public transport | `pdf/fare-evasion.pdf` | Google Drive devolvía 404 |
 | Regulating vertical markets through delegation | `pdf/vertical-markets.pdf` | Google Drive devolvía 401 (no era público) |
-| Public transport and urban structure (working paper) | `pdf/pt-urban-structure.pdf` | el acortador `cutt.ly` dejó de existir |
-| Team-based incentives in transportation firms (working paper) | `pdf/team-incentives.pdf` | la etiqueta `[working paper]` era texto plano, nunca tuvo enlace |
 | Welfare-improving taxes in the urban equilibrium | `pdf/welfare-improving-taxes.pdf` | la etiqueta `[pdf]` era texto plano, nunca tuvo enlace |
-| Input third-degree price discrimination by congestible facilities | `pdf/input-price-discrimination.pdf` | `economia.uc.cl` lo borró; no hay copia en archive.org |
+| Input third-degree price discrimination by congestible facilities | `pdf/input-price-discrimination.pdf` | `economia.uc.cl` lo borró; hay una copia en `website/temp/` sin revisar |
+
+Ojo con una cosa: los PDFs que se subieron son la **versión tipografiada de la revista**, no el
+manuscrito aceptado. Elsevier e INFORMS permiten publicar el manuscrito aceptado en una página
+personal, pero no siempre la versión final. El de *Transportation Science* además trae impreso el
+sello de descarga con la IP institucional. Si alguna vez llega un reclamo, la solución es
+reemplazar ese archivo por el manuscrito aceptado, no bajar el enlace.
 
 ### 3. Cosas que conviene que confirmes
 

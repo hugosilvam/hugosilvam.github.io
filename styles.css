@@ -10,6 +10,9 @@
   --accent-hover: #123a5a;
   --chip-bg: #f4f6f8;
   --chip-border: #dfe4ea;
+  --rr-bg: #edf4fa;
+  --rr-border: #c6dbec;
+  --rr-text: #1a4f7a;
   --max: 1020px;
   --gutter: 4.75rem;
 }
@@ -24,6 +27,9 @@
     --accent-hover: #a7d0ec;
     --chip-bg: #1a1f27;
     --chip-border: #2b323c;
+    --rr-bg: #17242f;
+    --rr-border: #2d4356;
+    --rr-text: #9cc8e8;
   }
 }
 
@@ -180,6 +186,13 @@ h2 {
 
 .pubs > li:last-child { border-bottom: none; }
 
+/* Working papers are ordered by status, not by date, so that list drops the
+   year gutter instead of showing a timeline the order does not follow. */
+.pubs-flow > li {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
 /* The year sits in the gutter and is printed only when it changes,
    so the column reads as a timeline rather than a repeated label. */
 .yr {
@@ -220,9 +233,29 @@ h2 {
 
 .filelinks a + a { margin-left: 14px; }
 
+/* Review status rides on the same line as the coauthors, as a small pill so it
+   stays scannable without reading as part of the author list. */
 .status {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 9px;
+  border: 1px solid var(--chip-border);
+  border-radius: 999px;
+  background: var(--chip-bg);
   color: var(--muted);
-  font-size: 15px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.8;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+.status i { font-style: italic; }
+
+.status-rr {
+  background: var(--rr-bg);
+  border-color: var(--rr-border);
+  color: var(--rr-text);
 }
 
 /* Simple lists (work in progress, older papers) */
@@ -273,6 +306,20 @@ footer {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 0 0 2px;
+  }
+}
+
+/* Below roughly a phone width the longest status ("Revise and resubmit,
+   Journal of Urban Economics") no longer fits next to the authors, so the pill
+   drops to its own line instead of overflowing the column. */
+@media (max-width: 560px) {
+  .status {
+    display: block;
+    width: fit-content;
+    margin: 4px 0 0;
+    white-space: normal;
+    border-radius: 10px;
+    padding: 1px 9px;
   }
 }
 
