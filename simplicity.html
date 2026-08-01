@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimpliCity — Hugo E. Silva</title>
 <meta name="description" content="SimpliCity, plataforma de planificación urbana basada en datos cofundada por Hugo E. Silva.">
+<!-- Igual que en index.html: todo abre en pestaña nueva, salvo los enlaces de
+     vuelta al inicio, que se quedan en la misma pestaña. -->
+<base target="_blank">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -15,7 +18,7 @@
 
   <aside class="sidebar">
     <div class="chips">
-      <a class="chip" href="index.html">&larr; Inicio</a>
+      <a class="chip" href="index.html" target="_self">&larr; Inicio</a>
     </div>
     <div class="sidebar-block">
       <strong>SimpliCity</strong><br>
@@ -48,7 +51,7 @@
     </ul>
 
     <footer>
-      <a href="index.html">Hugo E. Silva</a> &middot; Pontificia Universidad Católica de Chile
+      <a href="index.html" target="_self">Hugo E. Silva</a> &middot; Pontificia Universidad Católica de Chile
     </footer>
 
   </section>
