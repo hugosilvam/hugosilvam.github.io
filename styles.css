@@ -1,36 +1,25 @@
 /* Hugo E. Silva — personal site
    Layout modeled on the brief: sticky sidebar + single-column publication list. */
 
+/* The palette is light in every context. color-scheme pins form controls,
+   scrollbars and the pre-paint canvas to light so a reader whose OS is in dark
+   mode does not get a dark flash or dark UI chrome around a white page. */
 :root {
-  --bg: #ffffff;
+  color-scheme: light;
+  --bg: #fbfaf8;
   --text: #16191f;
   --muted: #59636f;
-  --rule: #e4e7ec;
+  --rule: #e5e2db;
   --accent: #1a4f7a;
   --accent-hover: #123a5a;
-  --chip-bg: #f4f6f8;
-  --chip-border: #dfe4ea;
+  --chip-bg: #f3f1ec;
+  --chip-border: #e2ded6;
   --rr-bg: #edf4fa;
   --rr-border: #c6dbec;
   --rr-text: #1a4f7a;
+  --card: #ffffff;
   --max: 1020px;
   --gutter: 4.75rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #12151a;
-    --text: #e5e9ef;
-    --muted: #9aa4b0;
-    --rule: #262c35;
-    --accent: #82b8de;
-    --accent-hover: #a7d0ec;
-    --chip-bg: #1a1f27;
-    --chip-border: #2b323c;
-    --rr-bg: #17242f;
-    --rr-border: #2d4356;
-    --rr-text: #9cc8e8;
-  }
 }
 
 * { box-sizing: border-box; }
@@ -122,8 +111,10 @@ a:focus-visible {
   letter-spacing: 0.01em;
 }
 
+/* White, not var(--bg): the page is a warm off-white, so lifting the chip to
+   pure white is what makes the hover read. */
 .chip:hover {
-  background: var(--bg);
+  background: var(--card);
   border-color: var(--accent);
   color: var(--accent);
   text-decoration: none;
@@ -258,6 +249,21 @@ h2 {
   display: block;
   width: fit-content;
   margin-bottom: 2px;
+}
+
+/* Titles that link to a PDF stay body-black, in both the unvisited and the
+   visited state, so the list reads as one column of titles rather than a mix of
+   blue and purple. :visited is listed explicitly because the browser default
+   would otherwise recolor it. The underline on hover carries the affordance. */
+.title:link,
+.title:visited {
+  color: var(--text);
+}
+
+.title:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .title-plain {
