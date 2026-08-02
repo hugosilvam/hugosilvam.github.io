@@ -204,6 +204,52 @@ h2 {
   margin: 0 0 14px;
 }
 
+/* ---------- Collapsible section ---------- */
+
+/* The <h2> keeps its own rule above, so a collapsible section is visually
+   identical to a plain one except for the chevron. The summary contributes
+   only the hit area. */
+.section > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.section > summary::-webkit-details-marker { display: none; }
+
+.section > summary > h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Same two-border chevron as the About toggle: down when closed, up when open. */
+.section > summary > h2::after {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: -4px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.section[open] > summary > h2::after {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.section > summary:hover > h2 { color: var(--accent); }
+
+.section > summary:hover > h2::after { border-color: var(--accent); }
+
+.section > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ---------- Publication lists ---------- */
 
 .pubs {
@@ -397,4 +443,9 @@ footer {
   /* Print the bio whether or not the reader expanded it, and drop the toggle. */
   .bio > summary { display: none; }
   .bio > p { display: block; }
+
+  /* Same for a collapsed section: the papers must be on the printed page even
+     if the reader had it folded shut. The heading stays, only the chevron goes. */
+  .section:not([open]) > ol { display: block; }
+  .section > summary > h2::after { display: none; }
 }
