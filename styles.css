@@ -138,6 +138,17 @@ h1 {
   line-height: 1.5;
 }
 
+/* The research areas are not an affiliation, so they sit in their own block
+   under the three institutional lines. A gap smaller than the 22px below the
+   pair keeps the two reading as one group. */
+.role-areas {
+  margin-top: 11px;
+}
+
+.role:has(+ .role-areas) {
+  margin-bottom: 0;
+}
+
 .bio p {
   margin: 0 0 14px;
   max-width: 62ch;
