@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hugo E. Silva | Transport and Urban Economics, PUC Chile</title>
-<meta name="description" content="Hugo E. Silva, Associate Professor of transport and urban economics at the Pontificia Universidad Católica de Chile. Publications and working papers.">
+<!-- Bilingual on purpose. The page itself is in English, but most searches that
+     should land here are Spanish ("Hugo Silva transporte", "economía del
+     transporte UC"), and this is the only place in <head> where those words can
+     appear. Google truncates the snippet it displays, not what it indexes. -->
+<meta name="description" content="Hugo E. Silva, Associate Professor of transport and urban economics at the Pontificia Universidad Católica de Chile. Publications and working papers. Profesor asociado de economía del transporte y economía urbana en la UC, Santiago de Chile.">
 <meta name="author" content="Hugo E. Silva">
 <!-- Every link opens in a new tab. Set once here instead of a target= on each
      anchor, so links added later inherit it. The mailto links opt back out. -->
@@ -24,31 +28,68 @@
      ORCID and RePEc, instead of one of the other academics named Hugo Silva.
      Every sameAs URL below was checked against its profile before being added.
      If the site moves to hugosilva.cl, update "url" and "image" here, plus
-     sitemap.xml and robots.txt. -->
+     sitemap.xml and robots.txt.
+
+     Names, job title and research areas are given in both languages. Searches
+     in Chile use the Spanish forms ("profesor asociado", "economía del
+     transporte", "Departamento de Ingeniería de Transporte y Logística"), and
+     "alternateName" covers the far more common "Hugo Silva" without the middle
+     initial. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Hugo E. Silva",
+  "alternateName": "Hugo Silva",
   "givenName": "Hugo",
   "familyName": "Silva",
-  "jobTitle": "Associate Professor",
+  "jobTitle": ["Associate Professor", "Profesor Asociado"],
+  "description": "Profesor asociado de economía del transporte y economía urbana en la Pontificia Universidad Católica de Chile.",
   "url": "https://hugosilvam.github.io/",
   "image": "https://hugosilvam.github.io/images/hugo-silva.jpg",
   "email": "mailto:husilva@uc.cl",
-  "affiliation": {
+  "worksFor": {
     "@type": "CollegeOrUniversity",
     "name": "Pontificia Universidad Católica de Chile",
+    "alternateName": "Pontifical Catholic University of Chile",
     "url": "https://www.uc.cl/"
   },
+  "affiliation": [
+    {
+      "@type": "Organization",
+      "name": "Departamento de Ingeniería de Transporte y Logística, Pontificia Universidad Católica de Chile",
+      "url": "https://www.ing.puc.cl/transporte-y-logistica/"
+    },
+    {
+      "@type": "Organization",
+      "name": "Instituto de Economía, Pontificia Universidad Católica de Chile",
+      "url": "https://economia.uc.cl/"
+    },
+    {
+      "@type": "Organization",
+      "name": "Center for Advanced Transportation, Logistics, and Economic Competitiveness (CATLEC)",
+      "url": "https://catlec.cl/"
+    },
+    {
+      "@type": "Organization",
+      "name": "Millennium Nucleus in Just Transport",
+      "url": "https://transportejusto.cl/"
+    }
+  ],
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "Vrije Universiteit Amsterdam" },
     { "@type": "CollegeOrUniversity", "name": "Universidad de Chile" }
   ],
+  "knowsLanguage": ["es", "en"],
   "knowsAbout": [
     "Transport economics",
     "Urban economics",
-    "Transport policy and regulation"
+    "Transport policy and regulation",
+    "Economía del transporte",
+    "Economía urbana",
+    "Política y regulación del transporte",
+    "Transporte público",
+    "Congestión y tarificación vial"
   ],
   "sameAs": [
     "https://scholar.google.com/citations?user=IZvIWk8AAAAJ&hl=en",
@@ -110,6 +151,22 @@
       <p>
         He is also a cofounder of <a href="simplicity.html">SimpliCity</a>, a startup for data-based
         urban and territorial planning.
+      </p>
+
+      <!-- Spanish summary. The rest of the site is in English, but most readers
+           and most searches that reach this page come from Chile, so the
+           institutions and the research areas are also given under the names
+           they are actually searched by. -->
+      <p lang="es">
+        Hugo E. Silva es Profesor Asociado del
+        <a href="https://www.ing.puc.cl/transporte-y-logistica/">Departamento de Ingeniería de Transporte y Logística</a>
+        y del <a href="https://economia.uc.cl/">Instituto de Economía</a> de la
+        Pontificia Universidad Católica de Chile. Investiga en economía del transporte
+        y economía urbana: tarificación de la congestión, subsidios y diseño del
+        transporte público, aeropuertos, y el efecto de la infraestructura de transporte
+        sobre la ciudad. Es investigador principal del
+        <a href="https://catlec.cl/">Centro Avanzado de Transporte, Logística y Competitividad Económica (CATLEC)</a>
+        y del <a href="https://transportejusto.cl/">Núcleo Milenio Transporte Justo (TJUSTO)</a>.
       </p>
     </details>
 
@@ -384,8 +441,13 @@
       <li>Rural transport in Chile: an empirical study on the efficiency in public biddings <span class="meta">with Marco Batarce and Vicente Viel.</span></li>
     </ul>
 
+    <!-- The second line repeats the affiliation in Spanish. The bio above says
+         the same thing, but it sits inside a collapsed <details>; this line is
+         visible without opening anything, which is what search engines weigh
+         most. -->
     <footer>
-      Hugo E. Silva &middot; Pontificia Universidad Católica de Chile
+      Hugo E. Silva &middot; Pontificia Universidad Católica de Chile<br>
+      <span lang="es">Departamento de Ingeniería de Transporte y Logística &middot; Instituto de Economía &middot; Santiago, Chile</span>
     </footer>
 
   </section>
