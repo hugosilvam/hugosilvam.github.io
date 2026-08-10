@@ -112,7 +112,9 @@ $results | Format-Table Language, KB, Pages, File -AutoSize | Out-String -Width 
 if ($stamp) { Write-Host "CV date line: $stamp" }
 
 # Spanish strings drafted but not yet approved by Hugo are tagged in the source.
-$todo = @(Select-String -LiteralPath $src -Pattern '%\s*\[REVISAR\]').Count
+# El patron exige texto antes del %, para no contar la linea de la cabecera
+# que explica la convencion.
+$todo = @(Select-String -LiteralPath $src -Pattern '^[^%].*%\s*\[REVISAR\]').Count
 if ($todo -gt 0) {
   Write-Host "$todo lines still marked % [REVISAR] in main.tex (Spanish pending your review)." -ForegroundColor Yellow
 }
