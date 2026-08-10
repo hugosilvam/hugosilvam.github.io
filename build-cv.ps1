@@ -3,15 +3,14 @@
   Compiles the CV from its bilingual Overleaf source into pdf/cv.pdf and pdf/cv-es.pdf.
 
 .DESCRIPTION
-  The CV lives in the Overleaf-synced Dropbox folder, not in this repo, so it stays
-  editable in the browser. One file, main.tex, holds both languages: every translatable
-  string is wrapped in \tr{english}{spanish}. This script compiles it twice and is the
-  only thing that writes the PDFs.
+  The CV source lives in cv\main.tex, tracked in this repo. It used to live in the
+  Overleaf-synced Dropbox folder; that copy is no longer the master. One file, main.tex,
+  holds both languages: every translatable string is wrapped in \tr{english}{spanish}.
+  This script compiles it twice and is the only thing that writes the PDFs.
 
-  Workflow: edit main.tex on Overleaf, let Dropbox sync, run this, commit the PDFs.
+  Workflow: edit cv\main.tex, run this, commit the source and the PDFs.
 
-  LaTeX runs in a scratch directory so no .aux/.log/.out files land in the Overleaf
-  folder, which would otherwise sync back to the project.
+  LaTeX runs in a scratch directory so no .aux/.log/.out files land next to the source.
 
 .EXAMPLE
   .\build-cv.ps1
@@ -24,7 +23,7 @@
 #>
 [CmdletBinding()]
 param(
-  [string]$Source = "$HOME\Dropbox\Apps\Overleaf\CV - Curriculum\main.tex",
+  [string]$Source = "$PSScriptRoot\cv\main.tex",
   [string]$OutputDir = "$PSScriptRoot\pdf",
   [ValidateSet('both', 'en', 'es')]
   [string]$Language = 'both'

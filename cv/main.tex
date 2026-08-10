@@ -1,0 +1,317 @@
+% =====================================================================
+% CV de Hugo E. Silva -- FUENTE BILINGUE UNICA
+%
+% Este archivo genera las DOS versiones del CV, ingles y espanol.
+% No edites CV_esp.tex: quedo obsoleto y ya no se usa.
+%
+% Como funciona
+%   \tr{ingles}{espanol}  elige el texto segun el idioma.
+%   Por defecto compila en ingles. Para el espanol se define \cvlang
+%   desde la linea de comandos (build-cv.ps1 lo hace solo).
+%
+% Como compilar
+%   Ingles:   pdflatex main.tex
+%   Espanol:  pdflatex "\def\cvlang{es}\input{main.tex}"
+%   Ambos:    .\build-cv.ps1   (en la carpeta del sitio web)
+%
+% Regla al editar
+%   Los titulos de papers, revistas y congresos NO se traducen: van en
+%   ingles en las dos versiones. Solo se traducen encabezados, cargos,
+%   y prosa (consultorias, premios, actividades).
+%
+% IMPORTANTE: nunca pongas & ni \\ dentro de un \tr{}{}. Rompe la tabla.
+%
+% Las lineas marcadas con % [REVISAR] tienen espanol redactado por
+% Claude que Hugo todavia no ha revisado.
+% =====================================================================
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{bold-extra}
+\usepackage[utf8]{inputenc}
+% babel se deja en spanish para las dos versiones, tal como estaba antes.
+% Cambiarlo a english en la version inglesa alteraria los cortes de linea
+% y el PDF en ingles dejaria de ser identico al que ya estaba publicado.
+\usepackage[spanish]{babel}
+\usepackage{ltablex}
+\usepackage{comment}
+\usepackage[hidelinks,bookmarks=false]{hyperref}
+
+% ---------- Conmutador de idioma ----------
+\ifx\cvlang\undefined \def\cvlang{en}\fi
+\newif\ifES
+\def\cvlangES{es}
+\ifx\cvlang\cvlangES \EStrue \else \ESfalse \fi
+
+% \tr{ingles}{espanol}
+\newcommand{\tr}[2]{\ifES#2\else#1\fi}
+
+% Atajos para las palabras que mas se repiten en las listas de papers.
+\newcommand{\cvwith}{\tr{with}{con}}
+\newcommand{\cvand}{\tr{and}{y}}
+\newcommand{\cvpresent}{\tr{present}{presente}}
+
+\titleformat*{\section}{\large\bfseries\scshape}
+\renewcommand{\labelitemi}{}
+\setlength\parindent{0pt}
+\pagenumbering{gobble}
+\usepackage[letterpaper,margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+\Large
+\textbf{Hugo E. Silva}
+\normalsize
+\end{center}
+\begin{flushright}
+\tr{August}{Agosto}, 2026
+\end{flushright}
+
+\section*{\tr{Contact Information}{Informaci\'{o}n de contacto}}
+
+  \tr{Department of Economics}{Departamento de Econom\'{i}a} \hfill  \tr{Phone}{Tel\'{e}fono}: +56 9 8211 6411 \\
+	\tr{Department of Transport Engineering and Logistics}{Departamento de Ingenier\'{i}a de Transporte y Log\'{i}stica} \hfill \href{mailto:husilva@uc.cl}{husilva@uc.cl} \\
+	Pontificia Universidad Cat\'{o}lica de Chile \hfill \href{mailto:hugosilvam@gmail.com}{hugosilvam@gmail.com} \\
+	Avda. Vicu\~{n}a Mackenna 4860, Macul, Santiago, Chile  \hfill \href{https://hugosilvam.github.io}{hugosilvam.github.io}
+
+\section*{\tr{Academic Appointments}{Cargos acad\'{e}micos}}
+
+\begin{tabularx}{\textwidth}{l X}
+2025--\cvpresent & \tr{Associate Professor}{Profesor Asociado}, Pontificia Universidad Cat\'{o}lica de Chile. \\
+2015--2024 & \tr{Assistant Professor}{Profesor Asistente}, Pontificia Universidad Cat\'{o}lica de Chile. \\
+2025-- & \tr{Principal Researcher}{Investigador Principal}, \tr{Millennium Nucleus in Just Transport}{N\'{u}cleo Milenio en Transporte Justo}. \\ % [REVISAR] nombre oficial en espanol del nucleo
+2025-- & \tr{Principal Researcher}{Investigador Principal}, \tr{Center for Advanced Transportation, Logistics and Economic Competitiveness (CATLEC)}{Centro de Transporte Avanzado, Log\'{i}stica y Competitividad Econ\'{o}mica (CATLEC)}. \\ % [REVISAR] nombre oficial en espanol de CATLEC
+2015-- & \tr{Researcher}{Investigador}, Bus Rapid Transit Centre of Excellence (BRT+ CoE) \\
+%2015--2025 & Researcher, Centre for Sustainable Urban Development (CEDEUS). \\
+%2015--2025 & Researcher, Complex Engineering Systems Institute (ISCI).
+\end{tabularx}
+
+%\section*{Areas of Interest \hrule}
+%Industrial Economics, Transport Economics, Public Economics.
+
+\section*{\tr{Education}{Formaci\'{o}n acad\'{e}mica}}
+
+\tr{Ph.D. in Economics. VU University Amsterdam. 2015.}{Ph.D. en Econom\'{i}a. VU University Amsterdam. 2015.} \\[4pt]
+\tr{M.Sc. in Transportation Engineering. Universidad de Chile, 2010.}{M.Sc. en Ingenier\'{i}a de Transporte. Universidad de Chile, 2010.} \\[4pt]
+\tr{Professional degree in Transport Engineering. Universidad de Chile, 2010.}{T\'{i}tulo Profesional en Ingenier\'{i}a de Transporte. Universidad de Chile, 2010.}
+
+%\section*{Research Interests}%\hrule}
+%Transportation Economics, Urban Economics, Industrial Organization.
+%%Primary Field: Regional, Real Estate, and Transportation Economics. \\
+%%Secondary fields: Industrial Organization, Microeconomics.
+
+\section*{\tr{Publications}{Publicaciones}}
+Optimal pricing of flights and passengers at congested airports and the efficiency of atomistic charges, \textbf{Journal of Public Economics, 2013, 106, 1--13}.  (\cvwith{} Erik T. Verhoef)\\[6pt]
+Airlines' strategic interactions and airport pricing in a dynamic bottleneck model of congestion, \textbf{Journal of Urban Economics, 2014 80, 13--27}. (\cvwith{} Erik T. Verhoef \cvand{} Vincent A.C. van den Berg) \\[6pt]
+Airlines' route structure competition and network policy, \textbf{Transportation Research Part B, 2014, 67, 320--343}. (\cvwith{} Erik T. Verhoef \cvand{} Vincent A.C. van den Berg)\\[6pt]
+Efficiency and Substitutability of Transit Subsidies and Other Urban Transport Policies, \textbf{American Economic Journal: Economic Policy, 2014, 6(4), 1--33}. (\cvwith{} Leonardo J. Basso)\\[6pt]
+On the Existence and Uniqueness of Equilibrium in the Bottleneck Model with Atomic Users. \textbf{Transportation Science, 2017, 51(3), 863-881}. (\cvwith{} Robin Lindsey, Andr\'{e} de Palma \cvand{} Vincent A.C. van den Berg) \\[6pt]
+Dynamic equilibrium at a congestible facility under market power. \textbf{Transportation Research Part B: Methodological, 2017, 105, 174-192}. (\cvwith{} Erik T. Verhoef) \\[6pt]
+Equilibrium in the bottleneck model with atomic and non-atomic users \textbf{Transportation Research Part B: Methodological, 2019, 124, 82-107}. (\cvwith{} Robin Lindsey \cvand{} Andr\'{e} de Palma) \\[6pt]
+The efficiency of bus rapid transit (BRT) systems: A dynamic congestion approach. \textbf{Transportation Research Part B: Methodological 2019, 127, 47-71} (\cvwith{} Leonardo J. Basso \cvand{} Fernando Feres).\\[6pt]
+The impact of fare-free public transport on travel behavior: evidence from a randomized controlled trial, \textbf{Regional Science and Urban Economics 2021, 86} (\cvwith{} Owen Bull \cvand{} Juan Carlos Muñoz). \\[6pt]
+Public transport and urban structure. \textbf{Economics of Transportation 2021} (\cvwith{} Leonardo J. Basso \cvand{} Mat\'{i}as Navarro). \\[6pt]
+Team-based incentives in transportation firms: An experiment \textbf{Transportation Research Part A: Policy and Practice. 2022, 164, 1--12} (\cvwith{} Vicente Ramirez, Patricia Galilea, Joaquin Poblete). \\[6pt]
+Fare Evasion in Public Transport: How does it affect the optimal design and pricing? \textbf{Transportation Research Part B: Methodological, 2023, 176} (\cvwith{} Raúl Ramos). \\[6pt]
+Maximization of equilibrium utility vs minimization of resources in the urban equilibrium (\cvwith{} Raúl Pezoa \cvand{} Leonardo Basso). \textbf{Economics Letters}, 240, 111772. \\[6pt]
+The efficiency of bus priority infrastructure (\cvwith{} Felipe González). \textbf{Journal of Urban Economics. 2025}\\[6pt]
+Public transport subsidies and the marginal cost of public funds: an interpretative review (\cvwith{} Raúl Ramos). \textbf{Transportation Research Part A: Policy and Practice. 2026.}
+
+\section*{\tr{Books and book chapters}{Libros y cap\'{i}tulos de libro}}
+
+%\textbf{Elgar Encyclopedia of Transport Economics}. \textit{In preparation} Editor (with Leonardo J. Basso). Edward Elgar Publishing \\
+
+The economics of airports' pricing. \tr{In}{En} \textbf{Handbook on Transport Pricing and Financing}, 2023, \tr{Pages}{pp.} 207-228, Edward Elgar Publishing. (\cvwith{} Tiziana D'Alfonso, Martina Gregori, \cvand{} Leonardo J. Basso) \\
+
+The Mohring Effect. \tr{In}{En} \textbf{International Encyclopedia of Transportation}, 2021, \tr{Pages}{pp.} 263-266, Elsevier.
+
+\section*{\tr{Research grants}{Proyectos de investigaci\'{o}n}}
+\begin{tabularx}{\textwidth}{l X}
+2024--2028 & \tr{Principal Investigator}{Investigador Principal}, \tr{Research Project}{Proyecto} ``The efficiency of urban transportation policies''.
+\tr{Research grant}{Proyecto} 1241734, FONDECYT Regular, Chile.  \\ \\
+2023--2027 & \tr{Co-Investigator}{Co-investigador}, \tr{Research Project}{Proyecto} ``Régimen Urbanístico Chileno: Análisis Socio-Jurídico de su Diseño y Práctica Institucional''.
+\tr{Research grant}{Proyecto} 1230839, FONDECYT Regular, Chile.  \\ \\
+2020--2024 & \tr{Principal Investigator}{Investigador Principal}, \tr{Research Project}{Proyecto} ``Optimal Departure from Marginal Cost Pricing of Transport Externalities''.
+\tr{Research grant}{Proyecto} 1200801, FONDECYT Regular, Chile.  \\ \\
+2019--2021 & \tr{Co-Investigator}{Co-investigador},  \tr{Research Project}{Proyecto} ``Externalities, income segregation and the structure of cities: the role of transport policies''.
+\tr{Research grant}{Proyecto} 1191010, FONDECYT Regular, Chile.  \\ \\
+2016--2019 & \tr{Principal Investigator}{Investigador Principal}, \tr{Research Project}{Proyecto} ``Regulation of airports: permits and taxes in the presence of market power and negative externalities''.
+\tr{Research grant}{Proyecto} 11160294, FONDECYT Iniciaci\'{o}n, Chile.
+\end{tabularx}
+
+%\begin{comment}
+\section*{\tr{Consulting}{Consultor\'{i}as}}
+\begin{tabularx}{\textwidth}{l X}
+2024-2025 & \textbf{\tr{Efficiency of public transport subsidization in the Metropolitan Area of Buenos Aires.}{Eficiencia de la subvenci\'{o}n al transporte p\'{u}blico en el \'{A}rea Metropolitana de Buenos Aires.}} \\ \noalign{\smallskip} % [REVISAR]
+					& -- \tr{Client}{Cliente}: \tr{IADB (BID)}{BID} \\
+					& -- \tr{Objectives}{Objetivos}: \tr{Evaluation of the effectiveness, competitiveness, and substitutability of demand-side and supply-side public transport subsidies. Economic welfare analysis based on the inference of consumer surplus.}{Evaluaci\'{o}n de la efectividad, competitividad y sustituibilidad de los subsidios al transporte p\'{u}blico por el lado de la demanda y de la oferta. An\'{a}lisis de bienestar econ\'{o}mico basado en la inferencia del excedente del consumidor.} \\ % [REVISAR]
+\noalign{\smallskip}
+
+2023 & \textbf{\tr{Financial and economics analysis of the proposed bidding terms and concession contracts for the Santiago Public Transportation System.}{An\'{a}lisis financiero y econ\'{o}mico de las bases de licitaci\'{o}n y los contratos de concesi\'{o}n propuestos para el Sistema de Transporte P\'{u}blico de Santiago.}} \\ \noalign{\smallskip} % [REVISAR]
+					& -- \tr{Client}{Cliente}: \tr{Ministry of Transportation and Telecommunications}{Ministerio de Transportes y Telecomunicaciones} \\
+					& -- \tr{Objectives}{Objetivos}: \tr{Specialized economic and financial advice for the 2023 bidding process to ensure it promotes competition and responsible use of public resources. Analyze aspects related to free competition and regulation, and the elements that could potentially become an obstacle or discourage the submission of bids. These elements include compliance indicators, service quality discounts, or incentives to reduce evasion.}{Asesor\'{i}a econ\'{o}mica y financiera especializada para el proceso de licitaci\'{o}n de 2023, para asegurar que promueva la competencia y el uso responsable de los recursos p\'{u}blicos. Analizar aspectos de libre competencia y regulaci\'{o}n, y los elementos que podr\'{i}an obstaculizar o desincentivar la presentaci\'{o}n de ofertas. Estos elementos incluyen indicadores de cumplimiento, descuentos por calidad de servicio e incentivos para reducir la evasi\'{o}n.} \\ % [REVISAR]
+\noalign{\smallskip}
+
+2022 & \textbf{\tr{Quantitative analysis of urban transport policies.}{An\'{a}lisis cuantitativo de pol\'{i}ticas de transporte urbano.}} \\ \noalign{\smallskip} % [REVISAR]
+					& -- \tr{Client}{Cliente}: \tr{IADB (BID)}{BID} \\
+					& -- \tr{Objectives}{Objetivos}: \tr{Study the distributional impacts and efficiency of subsidizing public transport, investing on Bus Rapid Transit and subways, and implementing car congestion pricing in Latin American cities.}{Estudiar los impactos distributivos y la eficiencia de subsidiar el transporte p\'{u}blico, invertir en Bus Rapid Transit y metro, e implementar tarificaci\'{o}n por congesti\'{o}n a los autom\'{o}viles en ciudades de Am\'{e}rica Latina.} \\ % [REVISAR]
+\noalign{\smallskip}
+
+2021-2022 & \textbf{\tr{Analysis of the regulation and externalities in the Salmon Aquaculture Industry in Chile.}{An\'{a}lisis de la regulaci\'{o}n y las externalidades en la industria de la acuicultura del salm\'{o}n en Chile.}} \\ \noalign{\smallskip} % [REVISAR]
+					& -- \tr{Client}{Cliente}: \tr{Consejo del Salmón (Salmon Council), Chile}{Consejo del Salmón, Chile} 		\\
+					& -- \tr{Objectives}{Objetivos}: \tr{provide expert and independent report regarding the current regulation and its comparison with regulation in Scotland, Norway and Canada. To estimate the effects of the regulations on externalities and its costs.}{Entregar un informe experto e independiente sobre la regulaci\'{o}n vigente y su comparaci\'{o}n con la regulaci\'{o}n de Escocia, Noruega y Canad\'{a}. Estimar los efectos de la regulaci\'{o}n sobre las externalidades y sus costos.} \\ % [REVISAR]
+\noalign{\smallskip}
+
+2018-2019 & \textbf{\tr{Expert Report on the potential impact of current regulation, infrastructure and contracts on the performance of Transantiago operators.}{Informe experto sobre el impacto potencial de la regulaci\'{o}n, la infraestructura y los contratos vigentes en el desempe\~{n}o de los operadores de Transantiago.}} \\ \noalign{\smallskip} % [REVISAR]
+					& -- \tr{Client}{Cliente}: \tr{Dirección General de Relaciones Económicas Internacionales - DIRECON, Ministerio de Relaciones Exteriores, Chile}{Dirección General de Relaciones Económicas Internacionales (DIRECON), Ministerio de Relaciones Exteriores, Chile} 		\\
+					& -- \tr{Objectives}{Objetivos}: \tr{provide expert and independent report regarding the impact of the current regulation, infrastructure and contracts on the performance of Transantiago operators  to complement the Respondent's Counter-Memorial and Rejoinder for the Tribunal of the International Centre for Settlement of Investment Disputes (ICSID)}{Entregar un informe experto e independiente sobre el impacto de la regulaci\'{o}n, la infraestructura y los contratos vigentes en el desempe\~{n}o de los operadores de Transantiago, para complementar el Counter-Memorial y el Rejoinder del Estado ante el Tribunal del Centro Internacional de Arreglo de Diferencias relativas a Inversiones (CIADI)} \\ % [REVISAR]
+					& -- \tr{Hearing}{Audiencia}: \tr{Participation as expert on the Hearing of the Merits at the International Centre for Settlement of Investment Disputes (ICSID) at London.}{Participaci\'{o}n como experto en la Audiencia de M\'{e}ritos del Centro Internacional de Arreglo de Diferencias relativas a Inversiones (CIADI) en Londres.} \\ \noalign{\smallskip} % [REVISAR]
+2018 &  \textbf{\tr{Economic and Anticompetitive Effects of a Fleet-Fixing Agreement Between Urban Public Transport Firms}{Efectos econ\'{o}micos y anticompetitivos de un acuerdo de fijaci\'{o}n de flota entre empresas de transporte p\'{u}blico urbano}} \\ % [REVISAR]
+					& --  \tr{Objective}{Objetivo}: \tr{provide expert and independent opinion regarding the anticompetitive effects of the agreement, in order to offer the Honorable Tribunal de Defensa de la Libre Competencia de Chile (TDLC) with additional perspectives that may be helpful in resolving the case.}{Entregar una opini\'{o}n experta e independiente sobre los efectos anticompetitivos del acuerdo, con el fin de aportar al Honorable Tribunal de Defensa de la Libre Competencia de Chile (TDLC) perspectivas adicionales que puedan ser \'{u}tiles para resolver el caso.} \\ % [REVISAR]
+					& -- \tr{Client}{Cliente}: Fiscalía Nacional Económica, Chile
+\end{tabularx}
+%\end{comment}
+
+\section*{\tr{Awards and other grants}{Premios y otros fondos}}
+\begin{tabularx}{\textwidth}{l X}
+2017 & \tr{Professor Piet Rietveld Award. Best doctoral dissertation in the area of transport research given by the Benelux Interuniversity Association of Transport Researchers (BIVEC-GIBET).}{Premio Profesor Piet Rietveld. Mejor tesis doctoral en el \'{a}rea de investigaci\'{o}n en transporte, otorgado por la Benelux Interuniversity Association of Transport Researchers (BIVEC-GIBET).} \\ \noalign{\medskip} % [REVISAR]
+2014 & \tr{Best paper by a Ph.D. student in the Symposium of the European Association for Research in Transportation. Paper:}{Mejor art\'{i}culo de un estudiante de doctorado en el Symposium of the European Association for Research in Transportation. Art\'{i}culo:} ``Input third-degree price discrimination by congestible facilities''. \\ \noalign{\medskip} % [REVISAR]
+     & \tr{Ph.D Scholarship ``Becas-Chile''. Awarded free tuition.}{Beca de doctorado ``Becas-Chile''. Incluy\'{o} arancel completo.} \\ \\ % [REVISAR]
+2012 & \tr{European Aviation Economics and Management Prize for best paper in the annual GARS workshop. Paper}{Premio European Aviation Economics and Management al mejor art\'{i}culo en el workshop anual de GARS. Art\'{i}culo} ``Airlines' strategic interactions and airport pricing in a dynamic bottleneck model of congestion'' (\cvwith{} Erik Verhoef \cvand{} Vincent van den Berg). \\ \noalign{\medskip} % [REVISAR]
+     & \tr{Second Prize, Best paper in Kuhmo Nectar Conference on Transportation Economics. Paper}{Segundo premio al mejor art\'{i}culo en la Kuhmo Nectar Conference on Transportation Economics. Art\'{i}culo} ``Airlines' strategic interactions and airport pricing in a dynamic bottleneck model of congestion'' (\cvwith{} Erik Verhoef \cvand{} Vincent van den Berg). \\ \\ % [REVISAR]
+2011 & \tr{Prize \emph{Colegio de Ingenieros de Chile} (College of Engineers of Chile) to the best new Civil Engineer from Universidad de Chile.}{Premio \emph{Colegio de Ingenieros de Chile} al mejor egresado de Ingenier\'{i}a Civil de la Universidad de Chile.} \\ \noalign{\medskip} % [REVISAR]
+     & \tr{Second Prize, Best paper in Kuhmo Nectar Conference on Transportation Economics. Paper}{Segundo premio al mejor art\'{i}culo en la Kuhmo Nectar Conference on Transportation Economics. Art\'{i}culo} “Efficiency and Complementarity of Transit Subsidies and Other Urban Transport Policies” (\cvwith{} Leonardo Basso). \\ \\ % [REVISAR]
+%2010 & Graduated with highest honors, Master in Transportation Science. \\ \noalign{\medskip}
+     %& Graduated with highest honors, Professional Degree in Civil Engineering. \\ \noalign{\medskip}
+     %& Scholarship for Master Studies. Awarded free tuition for academic excellence. \\ \\
+%2007--2010 & Prize \emph{alumno destacado} to the best students of Civil Engineering (yearly).
+\end{tabularx}
+
+\section*{\tr{Teaching Experience}{Docencia}}
+
+\begin{tabularx}{\textwidth}{l X}
+2016--\cvpresent & \tr{Lecturer: Microeconomics I, Microeconomics II, Transport Economics, and Topics in Urban Economics, Pontificia Universidad Cat\'{o}lica de Chile.}{Profesor: Microeconom\'{i}a I, Microeconom\'{i}a II, Econom\'{i}a del Transporte y Temas en Econom\'{i}a Urbana, Pontificia Universidad Cat\'{o}lica de Chile.} \\ \noalign{\smallskip} % [REVISAR]
+2012--2015 & \tr{Lecturer: Transport Economics, VU University.}{Profesor: Econom\'{i}a del Transporte, VU University.}  \color{white} FILLTEXTWIDTHFILLTEXTWIDTHFI gex \color{black} \textbf{ } \\ \noalign{\smallskip} % [REVISAR]
+2010 & \tr{TA: Competition and Regulation in Transport Markets, Universidad de Chile.}{Ayudante: Competencia y Regulaci\'{o}n en Mercados de Transporte, Universidad de Chile.} \\ \noalign{\smallskip} % [REVISAR]
+2009 & \tr{TA: Transport Demand, Universidad de Chile.}{Ayudante: Demanda de Transporte, Universidad de Chile.} \\ \noalign{\smallskip} % [REVISAR]
+2008-2009 & \tr{TA: Transport Systems Analysis, Universidad de Chile.}{Ayudante: An\'{a}lisis de Sistemas de Transporte, Universidad de Chile.} % [REVISAR]
+\end{tabularx}
+
+
+\section*{\tr{Ph.D. Students}{Estudiantes de doctorado}}
+
+Fernando Feres, \tr{Ph.D. in Engineering Science}{Ph.D. en Ciencias de la Ingenier\'{i}a}, Universidad de Chile (2020) \medskip
+
+Raúl Pezoa, \tr{Ph.D. in Engineering Science}{Ph.D. en Ciencias de la Ingenier\'{i}a}, Universidad de Chile (2023) \medskip
+
+Raúl Ramos, \tr{Ph.D. in Engineering Science}{Ph.D. en Ciencias de la Ingenier\'{i}a}, Pontificia Universidad Cat\'{o}lica de Chile (2026) \medskip
+
+\begin{comment}
+\section*{\tr{Master's Students (graduated)}{Estudiantes de mag\'{i}ster (graduados)}}
+
+\subsubsection*{\tr{M.Sc. in Economics}{M.Sc. en Econom\'{i}a}, Pontificia Universidad Cat\'{o}lica de Chile}
+\begin{tabularx}{\textwidth}{l X}
+    \textbf{2016} & Antonia Paredes \\ \noalign{\smallskip}
+    \textbf{2017} & León Guzmán, Nathaly Andrade, Nicolás Bozzo, Javiera de la Carrera, María Fernanda Castro, Victor Plaza, Pablo Valenzuela \\ \noalign{\smallskip}
+    \textbf{2019} & Andrea Herrera, Katiza Mitrovic \\ \noalign{\smallskip}
+    \textbf{2020} & Miguel de Irruarizaga \\ \noalign{\smallskip}
+    \textbf{2021} & Pedro José Correa, Max Gondonneau, Martín Loyola, Martín Rafols, Sebastián Ronda \\ \noalign{\smallskip}
+    \textbf{2022} & Esteban Gallego \\ \noalign{\smallskip}
+    \textbf{2023} & Matías Quintana \\ \noalign{\smallskip}
+    \textbf{2024} & Joaquín Toledo
+\end{tabularx}
+
+\subsubsection*{\tr{M.Sc. in Engeineering Science}{M.Sc. en Ciencias de la Ingenier\'{i}a}, Pontificia Universidad Cat\'{o}lica de Chile}
+
+    \textbf{2018}  Owen Bull \\ \smallskip
+    \textbf{2020}  Vicente Viel
+
+\subsubsection*{\tr{Master in Public Policy}{Mag\'{i}ster en Pol\'{i}ticas P\'{u}blicas}, Pontificia Universidad Cat\'{o}lica de Chile}
+
+   \textbf{2020}  Javier Peñafiel Durruty, Cristobal Cathalifaud  \\ \smallskip
+    \textbf{2021}   Laura González
+
+
+\subsubsection*{\tr{Other programs}{Otros programas}}
+Ignacio Riquelme (2016), Nicolás Esperguiel (2017), Rafael Cozmar (2022). \tr{Master in Engineering Science}{Mag\'{i}ster en Ciencias de la Ingenier\'{i}a}, Universidad de Chile.
+
+\end{comment}
+
+\section*{\tr{Selected Academic and Extension Activities}{Actividades acad\'{e}micas y de extensi\'{o}n seleccionadas}}
+\begin{tabularx}{\textwidth}{l X}
+%2015--- & Writing and Grading of the “graduation exam” (“examen de grado”) of the economics undergraduate program.\\ \noalign{\smallskip}
+%2015--- & Writing and Grading of the “graduation exam” (“examen de grado”) of the engineering undergraduate program.\\ \noalign{\smallskip}
+%2015--- & Supervision of students in their 16-week internship as a graduation activity (“Trabajo de Título”). (a) Main supervisor: Francisco Herrera (2019), Antonio Marangunic (2020), Valentina Zamorano (2020), Gonzalo Santolaya (2020), Nicolas Garrido Merino (2021), Janus Amaru Leonhardt (2021), Gabriel Vargas Toro (2022), Joaquín Gutiérrez Letelier (2022), Cristóbal Francke (2022),
+%Sebastián Ubilla (2023), Joaquín Bulnes (2024). (b) Member of the examination committee. \\ \noalign{\smallskip}
+2017-2018 & Consejo Consultivo Asesor de Estrategia y Planificación del Directorio de Transporte Público Metropolitano (DTPM). \tr{Member in representation of the Faculties of Engineering and Economics, Chile.}{Miembro en representaci\'{o}n de las Facultades de Ingenier\'{i}a y Econom\'{i}a, Chile.}	\\ \noalign{\smallskip} % [REVISAR]
+%2019--- & Economics undergraduate graduation activity (“Desafíos de Economía Aplicada”). \\ \noalign{\smallskip}
+2022-2023 & \tr{Created a collaboration agreement between the University and the Metropolitan Public Transport Board (DTPM) to promote research applied to real problems of the city.}{Creaci\'{o}n de un convenio de colaboraci\'{o}n entre la Universidad y el Directorio de Transporte P\'{u}blico Metropolitano (DTPM) para promover investigaci\'{o}n aplicada a problemas reales de la ciudad.} \\ \noalign{\smallskip} % [REVISAR]
+2023--- & \tr{Member of the Scientific Committee of the International Transportation Economics Association.}{Miembro del Comit\'{e} Cient\'{i}fico de la International Transportation Economics Association.} \\ \noalign{\smallskip} % [REVISAR]
+2026--- & \tr{Member of the Executive Committee of the International Transportation Economics Association.}{Miembro del Comit\'{e} Ejecutivo de la International Transportation Economics Association.} \\ \noalign{\smallskip} % [REVISAR]
+2026--- & \tr{Editorial Board of the journal Economics of Transportation.}{Comit\'{e} editorial de la revista Economics of Transportation.} \\ \noalign{\smallskip} % [REVISAR]
+\tr{Refereeing}{Revisi\'{o}n} &  \textit{American Economic Journal: Economic Policy, Journal of Urban Economics, Journal of the European Economic Association, International Economic Review, Economic Inquiry, International Journal of Industrial Organization, RAND Journal of Economics, Regional Science and Urban Economics, Transportation Science,  Transportation Research Part A, Transportation Research Part B, Transportation Research Part E, Economics of Transportation, Transportation Policy}. \\ \noalign{\smallskip}
+\tr{Reviewer}{Evaluador} &  \tr{FONDECYT Regular and Iniciación (2014, 2016--present). Research funding program from the National Commission for Scientific and Technological Research (CONICYT) of the Chilean government.}{FONDECYT Regular e Iniciación (2014, 2016--presente). Programa de financiamiento de investigaci\'{o}n de la Comisi\'{o}n Nacional de Investigaci\'{o}n Cient\'{i}fica y Tecnol\'{o}gica (CONICYT) del gobierno de Chile.} % [REVISAR]
+\end{tabularx}
+
+\section*{\tr{Invited seminars and conferences (selected)}{Seminarios y congresos invitados (seleccionados)}}
+
+\begin{tabularx}{\textwidth}{l X}
+2026 & 15th European Meeting of the Urban Economics Association (Barcelona) \\
+     & Annual Conference of the International Transportation Economics Association (\tr{University of Bergamo, Italy}{Universidad de B\'{e}rgamo, Italia}) \\
+     & AREUEA International Conference (Medellín, Colombia) \\
+     & \tr{Department of Economics}{Departamento de Economía}, FEN, Universidad de Chile \\
+     & LAC-US Urban Structure Network Seminar Series (\tr{online}{en l\'{i}nea}) \\[4pt]
+2025 & 14th European Meeting of the Urban Economics Association (\tr{Berlin}{Berl\'{i}n})\\
+     & LACEA Annual Meeting (Recife, \tr{Brazil}{Brasil}) \\
+     & LACEA-LAUrban Workshop (São Paulo, \tr{Brazil}{Brasil}) \\
+     & Conference on Advanced Systems in Public Transport and TransitData (Kyoto, \tr{Japan}{Jap\'{o}n}) \\
+     & May RIDGE Forum (Labor workshop, Lima) \\[4pt]
+2024 & 18th Meeting of the Urban Economics Association (Washington) \\
+        & 2024 7th Workshop on  Urban Economics, Barcelona Institute of Economics (IEB) \\
+    & Annual Conference of the International Transportation Economics Association (Leeds).\\[4pt]
+2023 & 17th Meeting of the Urban Economics Association (Toronto) \\         & Annual Conference of the International Transportation Economics Association (Santander, \tr{Spain}{Espa\~{n}a}).\\[4pt]
+2022 & 16th Meeting of the Urban Economics Association (Washington DC)\\
+2021 & Annual Conference of the International Transportation Economics Association \\
+2020 & 15th Meeting of the Urban Economics Association (\tr{Virtual}{virtual}) \\
+2019 & 14th Meeting of the Urban Economics Association (\tr{Philadelphia}{Filadelfia}) \\
+2018 & Annual Conference of the International Transportation Economics Association (Hong-Kong); XX Pan-American Conference of Traffic and Transportation Engineering (Medellín, Colombia); Centre for Transport Studies, Department of Civil Engineering, Imperial College London, 2018 \\
+2017 & Annual Conference of the International Transportation Economics Association (IEB, Barcelona); PUJ/Banrep Workshop on Urban and Regional Economics (Bogotá); 13th International Conference of the Western Economic Association International (Pontificia Universidad Católica de Chile); Encuentro Anual SECHI (Universidad de Talca, Chile); XVIII Congreso Chileno de Ingenier\'{i}a en Transporte (La Serena);  Departamento Economía, FEN, Universidad Alberto Hurtado \\
+2016 & Annual Conference of the International Transportation Economics Association (Faculty of Physical and Mathematical Sciences, Universidad de Chile);  Departamento Economía, FEN, Universidad de Chile \\
+2015 & Annual Conference of the International Transportation Economics Association (The Institute of Transport Economics, Oslo), XVII Congreso Chileno de Ingenier\'{i}a en Transporte (Universidad del B\'{i}o-B\'{i}o, Concepci\'{o}n). \\
+2014 & German Aviation Research Society workshop (Amsterdam), Symposium of the European Association for Research in Transportation (ITS Leeds). \\
+2013 & Annual Conference of the International Transportation Economics Association (Northwestern University), 17th Air Transport Research Society World conference (University of Bergamo), XII NECTAR International Conference (University of Azores), XVI Congreso Chileno de Ingeniería en Transporte (Universidad de Chile). \\
+2012 &  XVII Pan-American Conference of Traffic and Transportation Engineering (Universidad de los Andes, Chile), Annual Conference of the International Transportation Economics Association (DIW Berlin), Annual German Aviation Research Society workshop (University of Applied Sciences, Bremen).\\
+2011 & Annual Conference of the International Transportation Economics Association (CTS, Stockholm).\\
+2010\textcolor{white}{--2010} & Encuentro Anual de la Sociedad de Economía de Chile (Universidad de Talca).
+\end{tabularx}
+
+%\section*{Invited talks (selected)}
+%\begin{tabularx}{\textwidth}{l X}
+%2018 & Centre for Transport Studies, Department of Civil Engineering, Imperial College London, 2018 \\ \\
+%2017 & Departamento Economía, FEN, Universidad Alberto Hurtado. \\ \\
+%2016 & Departamento Economía, FEN, Universidad de Chile \\ \\
+%\end{tabularx}
+
+%\section*{Refereeing }%\hrule}
+%
+%\begin{tabularx}{\textwidth}{l X}
+%%2010 & Co-director in the accreditation process, M.Sc. program ``Magister en Transporte, Universidad de Chile''. Program accredited for 6 years. \\ \noalign{\smallskip}
+%%2010 & Research Assistant at the Complex Engineering Systems Institute (ISCI).\\ \noalign{\smallskip}  % Studying relevant questions of policies for congestion management, and effects of second-best congestion pricing.
+%%2009 & Research Assistant for Leonardo J. Basso in ``Transport Gateways: Analysis of Competition, Regulation And Market Performance''.  \\ \noalign{\smallskip}
+%Refereeing &  \textit{American Economic Journal: Economic Policy, Journal of Urban Economics, Economic Inquiry, International Journal of Industrial Organization, Regional Science and Urban Economics, Transportation Science,  Transportation Research Part A, Transportation Research Part B, Transportation Research Part E, Economics of Transportation, FONDECYT}. \\ \noalign{\smallskip}
+%\end{tabularx}
+
+
+%\section*{Research in progress:}%\hrule}
+%
+%``Market power in the bottleneck model with long- and short-run scheduling preferences: equilibrium and pricing'' \\
+%%``Welfare benefits of transit engineering measures'' (with Leonardo J. Basso and Alejandro Tirachini) \\
+%``Stochastic bottleneck model with atomic users'' (with Robin Lindsey, Andre de Palma and Erik T. Verhoef) \\
+%``Effects of market power on Pigouvian tolls and permits markets: the case of slot management at congested airports'' (with Leonardo J. Basso)
+
+\end{document}
