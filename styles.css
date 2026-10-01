@@ -19,7 +19,7 @@
   --rr-text: #1a4f7a;
   --card: #ffffff;
   --max: 1020px;
-  --gutter: 4.75rem;
+  --gutter: 6.25rem;
 }
 
 * { box-sizing: border-box; }
