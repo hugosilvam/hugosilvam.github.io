@@ -19,7 +19,7 @@
   --rr-text: #1a4f7a;
   --card: #ffffff;
   --max: 1020px;
-  --gutter: 6.25rem;
+  --gutter: 7rem;
 }
 
 * { box-sizing: border-box; }
@@ -295,6 +295,11 @@ h2 {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
   padding-top: 2px;
+  /* "Forthcoming" is the longest label; if a font renders it wider than the
+     gutter, hyphenate it rather than let it run into the title. */
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* The title is the only block in the entry. Everything after it (coauthors,
