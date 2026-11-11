@@ -130,6 +130,10 @@ Copia un `<li>` de la lista correspondiente en `index.html` y edita el texto. La
 El año se escribe solo en la primera entrada de cada año. Las siguientes llevan `<span class="yr"></span>`
 vacío, y la columna de la izquierda queda como una línea de tiempo.
 
+Cuando un artículo publicado ya tiene enlazado el PDF de la revista, la entrada **no lleva
+`filelinks`**: se borran los enlaces `SSRN` y `Journal`. El título enlazado al PDF es el único
+enlace. `filelinks` queda solo para apéndices online o slides.
+
 Si un paper todavía no tiene PDF, usa `<span class="title-plain">Título</span>` en vez del `<a>`.
 Nunca dejes un `<a>` apuntando a un archivo que no existe.
 
