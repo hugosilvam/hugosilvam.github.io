@@ -219,3 +219,19 @@ reemplazar ese archivo por el manuscrito aceptado, no bajar el enlace.
 - **Correo.** Puse `hugosilvam@gmail.com` como pediste. El sitio anterior mostraba `husilva@uc.cl`.
 - **Millennium Nucleus in Just Transport** aparece sin enlace porque no encontré un sitio oficial.
   Si existe, agrégalo en el primer párrafo de la bio.
+
+### 3. Posicionamiento en Google: enlaces externos (auditoría del 11-11-2026)
+
+El SEO dentro del sitio está hecho. Lo que falta son enlaces desde otros sitios hacia
+`https://hugosilvam.github.io/`. Estado al 11-11-2026:
+
+| Perfil | Estado |
+|---|---|
+| Google Scholar, ORCID, RePEc/IDEAS | Ya enlazan al sitio nuevo |
+| `ing.uc.cl/academicos-e-investigadores/hugo-emilio-silva-montalva/` | Enlaza al Google Sites antiguo. Pedir cambio |
+| `ing.uc.cl/transporte-y-logistica/team/hugo-silva/` | Sin enlace al sitio. Pedir que lo agreguen |
+| `economia.uc.cl/profesores/hugo-silva/` | "Sitio web" va al Google Sites antiguo y "Descargar CV" a un PDF de 2023. Pedir cambio |
+| `catlec.cl/equipo/hugo-silva-2/` y `transportejusto.cl/equipo/hugo-silva/` | Sin enlace directo; enlazan a la ficha de Ingeniería UC. Pedir enlace directo |
+| SSRN, ResearchGate, LinkedIn | No se pudieron revisar (bloquean lectura automática). Revisar a mano |
+| `sites.google.com/site/hugosilvam/` | Sigue en línea y compite con el sitio nuevo. Despublicar **después** de que las fichas UC estén corregidas |
+| `https://www.hugosilva.cl` | Redirige bien, pero el certificado HTTPS de `www` falló en una prueba. Sin confirmar en navegador |
