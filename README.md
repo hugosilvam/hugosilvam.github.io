@@ -274,3 +274,10 @@ Hecho en Search Console el 24-11-2026 (sesión con Claude en el Chrome de Hugo):
   No es propiedad de Search Console, así que se usó la herramienta pública "Retirar contenido obsoleto"
   (search.google.com/search-console/remove-outdated-content). Solicitud enviada, estado "Pendiente".
 - Panorama: 8 páginas indexadas, 0 con problemas, 21 clics desde búsqueda entre agosto y noviembre de 2026.
+- Rendimiento por página (ago–nov 2026): portada 10 clics / 424 impresiones; `pdf/mohring-effect.pdf`
+  6 / 658; el resto de los PDFs 0–2 clics. Consultas visibles: "mohring effect" (180 impresiones),
+  "hugo silva uc" (24 impresiones, 0 clics: la gente elige las fichas UC).
+- `pdf/wfh-migration-gender.pdf` (borrado el 11-2026) seguía recibiendo impresiones y daba 404. Se dejó
+  en esa ruta una copia del PDF actual `telework-migration.pdf`. GitHub Pages no permite redirecciones
+  de PDF, así que la copia es la única forma de no perder ese tráfico. Si se cambia el PDF del paper
+  de teletrabajo, copiarlo a las dos rutas.
