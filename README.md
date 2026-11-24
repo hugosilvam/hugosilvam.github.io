@@ -235,3 +235,32 @@ El SEO dentro del sitio está hecho. Lo que falta son enlaces desde otros sitios
 | SSRN, ResearchGate, LinkedIn | No se pudieron revisar (bloquean lectura automática). Revisar a mano |
 | `sites.google.com/site/hugosilvam/` | Sigue en línea y compite con el sitio nuevo. Despublicar **después** de que las fichas UC estén corregidas |
 | `https://www.hugosilva.cl` | Redirige bien, pero el certificado HTTPS de `www` falló en una prueba. Sin confirmar en navegador |
+
+#### Estado al 24-11-2026
+
+Posición en Google (búsquedas hechas ese día desde Chile):
+
+| Búsqueda | Dónde sale `hugosilvam.github.io` |
+|---|---|
+| "Hugo Silva transporte UC" | Página 1, puesto 7, detrás de las fichas UC y LinkedIn |
+| "Hugo E. Silva transport economics" | Puesto 3, **detrás del Google Sites antiguo** y de Economía UC |
+| "Hugo Silva Montalva" | No aparece. La página nunca decía "Montalva" (corregido ese día: nombre completo en la bio y en `alternateName`) |
+
+Cambios en los enlaces externos desde el 11-11:
+
+- `economia.uc.cl/profesores/hugo-silva/` **ya enlaza** a `https://hugosilvam.github.io/` y al CV de 2026.
+- `ing.uc.cl/academicos-e-investigadores/...` sigue enlazando a `sites.google.com/site/hugosilvam`.
+  Es la ficha que Google muestra primero para casi todas las búsquedas, así que es el enlace que más pesa.
+- `catlec.cl` y `transportejusto.cl` siguen sin enlace directo (enlazan a la ficha de Ingeniería UC).
+- `sites.google.com/site/hugosilvam` ahora redirige a un login de Google (ya no es público), pero
+  Google todavía lo tiene indexado y lo muestra arriba del sitio nuevo. Pedir su retiro en Search
+  Console (herramienta "Retiros", URL del Google Sites) acelera que desaparezca.
+
+Lo que queda y solo Hugo puede hacer (todo requiere su cuenta):
+
+1. Search Console: confirmar que `sitemap.xml` está enviado y pedir indexación de `https://hugosilvam.github.io/`
+   después de cada cambio grande (Inspección de URL → Solicitar indexación).
+2. Search Console: pedir el retiro del Google Sites antiguo.
+3. Escribir a Ingeniería UC (ficha de académico) y a CATLEC/TJUSTO para que el enlace apunte a
+   `https://hugosilvam.github.io/`.
+4. Revisar a mano que SSRN, ResearchGate y LinkedIn tengan el sitio nuevo como "website".
