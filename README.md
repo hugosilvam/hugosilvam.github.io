@@ -264,3 +264,13 @@ Lo que queda y solo Hugo puede hacer (todo requiere su cuenta):
 3. Escribir a Ingeniería UC (ficha de académico) y a CATLEC/TJUSTO para que el enlace apunte a
    `https://hugosilvam.github.io/`.
 4. Revisar a mano que SSRN, ResearchGate y LinkedIn tengan el sitio nuevo como "website".
+
+Hecho en Search Console el 24-11-2026 (sesión con Claude en el Chrome de Hugo):
+
+- El sitemap llevaba desde el 5-8-2026 en estado "No se pudo obtener" con 0 páginas. Se volvió a enviar
+  `sitemap.xml`; el archivo responde 200 en vivo. Revisar en unos días que el estado cambie a "Correcto".
+- Inspección de URL de la portada: indexada. Se pidió reindexación (aceptada: "Indexing requested").
+- `sites.google.com/site/hugosilvam/` ya no existe (404 incluso para el dueño; anónimo redirige a login).
+  No es propiedad de Search Console, así que se usó la herramienta pública "Retirar contenido obsoleto"
+  (search.google.com/search-console/remove-outdated-content). Solicitud enviada, estado "Pendiente".
+- Panorama: 8 páginas indexadas, 0 con problemas, 21 clics desde búsqueda entre agosto y noviembre de 2026.
